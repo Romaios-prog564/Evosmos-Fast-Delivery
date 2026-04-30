@@ -272,6 +272,7 @@ body {
 }
 .badge.pending { background: rgba(247,201,72,0.12); color: var(--gold); }
 .badge.confirmed { background: rgba(55,229,163,0.12); color: var(--success); }
+.badge.declined { background: rgba(255,89,118,0.14); color: var(--danger); }
 
 .empty-note { color: var(--text-dim); font-size: 12px; text-align: center; padding: 14px; }
 
@@ -375,13 +376,24 @@ body {
 .admin-table tbody tr { transition: background-color .2s; }
 .admin-table tbody tr:hover { background: rgba(59,216,255,0.03); }
 .admin-table .order-id { color: var(--text-dim); font-size: 11px; }
-.admin-table .confirm-btn {
-  padding: 6px 14px; font-size: 11px; background: var(--success); color: #052218; border: 0;
+
+.action-group { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.admin-table .confirm-btn,
+.admin-table .decline-btn {
+  padding: 6px 14px; font-size: 11px; border: 0;
   border-radius: 8px; cursor: pointer; font-family: inherit; font-weight: 700; letter-spacing: 0.5px;
   transition: transform .15s, box-shadow .2s;
 }
+.admin-table .confirm-btn { background: var(--success); color: #052218; }
 .admin-table .confirm-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(55,229,163,0.3); }
+
+.admin-table .decline-btn { background: var(--danger); color: #2a0710; }
+.admin-table .decline-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(255,89,118,0.3); }
+
 .admin-table .done-tag { color: var(--success); font-weight: 700; letter-spacing: 0.5px; font-size: 11px; }
+.admin-table .declined-tag { color: var(--danger); font-weight: 700; letter-spacing: 0.5px; font-size: 11px; }
+
 .type-tag { font-size: 10px; padding: 3px 8px; border-radius: 6px; background: rgba(59,216,255,0.1); color: var(--accent); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
 .type-tag.sub { background: rgba(247,201,72,0.1); color: var(--gold); }
 
@@ -431,3 +443,4 @@ body {
   .card { padding: 22px; }
   .card .price { font-size: 28px; }
 }
+
