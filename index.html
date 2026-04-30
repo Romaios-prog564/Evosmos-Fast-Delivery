@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <title>Evosmos Fast Delivery</title>
+  <link rel="stylesheet" href="style.css" >
+
+  <link rel="icon" href="favicon.ico?v=2" type="image/x-icon">
+  
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- AUTH SCREEN -->
+  <section id="auth-screen" class="screen active">
+    <div class="auth-wrapper">
+      <div class="brand">
+        <div class="logo-mark">E</div>
+        <h1>Evosmos<span>.</span></h1>
+        <p class="tagline">Fast Delivery, Faster Results.</p>
+      </div>
+
+      <div class="auth-card">
+        <div class="tabs">
+          <button class="tab active" data-tab="login">Login</button>
+          <button class="tab" data-tab="register">Register</button>
+        </div>
+
+        <form id="login-form" class="auth-form active">
+          <label>Username</label>
+          <input type="text" id="login-username" placeholder="e.g. johndoe" required />
+
+          <label>Password</label>
+          <input type="password" id="login-password" placeholder="••••••••" required />
+
+          <button type="submit" class="btn btn-primary">Log In</button>
+          <p class="form-error" id="login-error"></p>
+        </form>
+
+        <form id="register-form" class="auth-form">
+          <label>Email</label>
+          <input type="email" id="reg-email" placeholder="you@mail.com" required />
+
+          <label>Username</label>
+          <input type="text" id="reg-username" placeholder="pick a username" required />
+
+          <label>Password</label>
+          <input type="password" id="reg-password" placeholder="min 4 chars" required />
+
+          <label>Confirm Password</label>
+          <input type="password" id="reg-confirm" placeholder="repeat password" required />
+
+          <label>Captcha: Solve <span id="captcha-question" class="captcha-q"></span></label>
+          <input type="number" id="reg-captcha" placeholder="your answer" required />
+
+          <button type="submit" class="btn btn-primary">Create Account</button>
+          <p class="form-error" id="register-error"></p>
+        </form>
+      </div>
+      <p class="foot-note">Admin access exists for authorized personnel only.</p>
+    </div>
+  </section>
+
+  <!-- APP SHELL -->
+  <section id="app-screen" class="screen">
+    <header class="top-bar">
+      <div class="logo-inline">
+        <div class="logo-mark sm">E</div>
+        <span>Evosmos</span>
+      </div>
+
+      <nav class="top-nav">
+        <button class="nav-link active" data-page="home">Delivery</button>
+        <button class="nav-link" data-page="premium">Premium</button>
+        <button class="nav-link admin-only" data-page="admin">Admin</button>
+      </nav>
+
+      <div class="user-zone">
+        <button id="user-menu-toggle" class="user-btn">
+          <div class="avatar" id="avatar-letter">U</div>
+          <span id="top-username">user</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+        </button>
+
+        <div id="user-menu" class="user-menu">
+          <div class="um-header">
+            <div class="avatar lg" id="avatar-letter-lg">U</div>
+            <div>
+              <div class="um-name" id="um-username">user</div>
+              <div class="um-email" id="um-email">email</div>
+            </div>
+          </div>
+          <div class="um-stats">
+            <div class="stat">
+              <span class="stat-label">Total spent</span>
+              <span class="stat-value" id="um-spent">$0.00</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Subscription</span>
+              <span class="stat-value" id="um-sub">None</span>
+            </div>
+          </div>
+          <div class="um-orders">
+            <div class="um-sec-title">Your Orders</div>
+            <ul id="um-orders-list"></ul>
+          </div>
+          <button id="logout-btn" class="btn btn-ghost">Log Out</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="page-home" class="page active">
+      <div class="page-head">
+        <h2>Choose Your Delivery</h2>
+        <p>Lightning fast drop-offs across the city.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon">01</div>
+          <h3>Single Package</h3>
+          <p class="time">Delivered in ~5 min</p>
+          <div class="price">$0.50</div>
+          <button class="btn btn-outline order-btn" data-item="1 Package" data-price="0.5">Order</button>
+        </article>
+
+        <article class="card featured">
+          <div class="ribbon">Popular</div>
+          <div class="card-icon">02</div>
+          <h3>Two Packages</h3>
+          <p class="time">Delivered in ~10 min</p>
+          <div class="price">$1.00</div>
+          <button class="btn btn-primary order-btn" data-item="2 Packages" data-price="1">Order</button>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">05</div>
+          <h3>Five Packages</h3>
+          <p class="time">Delivered in ~15 min</p>
+          <div class="price">$2.50</div>
+          <button class="btn btn-outline order-btn" data-item="5 Packages" data-price="2.5">Order</button>
+        </article>
+      </div>
+    </main>
+
+    <main id="page-premium" class="page premium-page">
+      <div class="page-head gold">
+        <h2>Evosmos Premium</h2>
+        <p>Priority dispatch, free delivery, member-only rates.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card gold-card">
+          <div class="card-icon">M</div>
+          <h3>Monthly</h3>
+          <p class="time">30 days of premium</p>
+          <div class="price">$25</div>
+          <button class="btn btn-gold order-btn" data-item="Monthly Premium" data-price="25" data-sub="monthly">Subscribe</button>
+        </article>
+
+        <article class="card gold-card featured">
+          <div class="ribbon gold-ribbon">Best Value</div>
+          <div class="card-icon">6M</div>
+          <h3>6 Months</h3>
+          <p class="time">180 days · save $15</p>
+          <div class="price">$135</div>
+          <button class="btn btn-gold order-btn" data-item="6-Month Premium" data-price="135" data-sub="6months">Subscribe</button>
+        </article>
+
+        <article class="card gold-card">
+          <div class="card-icon">1Y</div>
+          <h3>1 Year</h3>
+          <p class="time">365 days · save $20</p>
+          <div class="price">$280</div>
+          <button class="btn btn-gold order-btn" data-item="Yearly Premium" data-price="280" data-sub="yearly">Subscribe</button>
+        </article>
+      </div>
+    </main>
+
+    <main id="page-admin" class="page admin-page">
+      <div class="page-head">
+        <h2>Admin Panel</h2>
+        <p>Review and confirm pending orders.</p>
+      </div>
+
+      <div class="admin-filter">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="pending">Pending</button>
+        <button class="chip" data-filter="confirmed">Confirmed</button>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>User</th>
+              <th>Item</th>
+              <th>Type</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="admin-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </section>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
